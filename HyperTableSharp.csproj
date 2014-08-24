@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{FD9E6267-06CF-42F7-A36A-880D7E30F92B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>HyperTableSharp</RootNamespace>
+    <AssemblyName>HyperTableSharp</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Thrift">
+      <HintPath>Libs\Thrift.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core">
+      <HintPath>Libs\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HyperTable\ThriftGen\AccessGroup.cs" />
+    <Compile Include="HyperTable\ThriftGen\Cell.cs" />
+    <Compile Include="HyperTable\ThriftGen\CellInterval.cs" />
+    <Compile Include="HyperTable\ThriftGen\ClientException.cs" />
+    <Compile Include="HyperTable\ThriftGen\ClientService.cs" />
+    <Compile Include="HyperTable\ThriftGen\ColumnFamily.cs" />
+    <Compile Include="HyperTable\ThriftGen\ColumnPredicate.cs" />
+    <Compile Include="HyperTable\ThriftGen\ColumnPredicateOperation.cs" />
+    <Compile Include="HyperTable\ThriftGen\HqlResult.cs" />
+    <Compile Include="HyperTable\ThriftGen\HqlResult2.cs" />
+    <Compile Include="HyperTable\ThriftGen\HqlResultAsArrays.cs" />
+    <Compile Include="HyperTable\ThriftGen\HqlService.cs" />
+    <Compile Include="HyperTable\ThriftGen\Key.cs" />
+    <Compile Include="HyperTable\ThriftGen\KeyFlag.cs" />
+    <Compile Include="HyperTable\ThriftGen\MutateSpec.cs" />
+    <Compile Include="HyperTable\ThriftGen\MutatorFlag.cs" />
+    <Compile Include="HyperTable\ThriftGen\NamespaceListing.cs" />
+    <Compile Include="HyperTable\ThriftGen\Result.cs" />
+    <Compile Include="HyperTable\ThriftGen\ResultAsArrays.cs" />
+    <Compile Include="HyperTable\ThriftGen\ResultSerialized.cs" />
+    <Compile Include="HyperTable\ThriftGen\RowInterval.cs" />
+    <Compile Include="HyperTable\ThriftGen\ScanSpec.cs" />
+    <Compile Include="HyperTable\ThriftGen\Schema.cs" />
+    <Compile Include="HyperTable\ThriftGen\TableSplit.cs" />
+    <Compile Include="HyperTable\Thrift\SerializedCellsFlag.cs" />
+    <Compile Include="HyperTable\Thrift\ThriftClient.cs" />
+    <Compile Include="HyperTable\Thrift\SerializedCellsReader.cs" />
+    <Compile Include="HyperTable\Thrift\SerializedCellsWriter.cs" />
+    <Compile Include="HyperTable\Thrift\Extensions4Java\StringExtensions.cs" />
+    <Compile Include="BasicClientTest.cs" />
+    <Compile Include="StringExtensions.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Libs\" />
+    <Folder Include="HyperTable\" />
+    <Folder Include="HyperTable\ThriftGen\" />
+    <Folder Include="HyperTable\Thrift\" />
+    <Folder Include="HyperTable\Thrift\Extensions4Java\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Libs\Thrift.dll" />
+    <None Include="Libs\IKVM.OpenJDK.Core.dll" />
+    <None Include="Libs\IKVM.Runtime.dll" />
+    <None Include="Libs\Newtonsoft.Json.dll" />
+  </ItemGroup>
+</Project>
